@@ -47,7 +47,6 @@ export class LoginComponent {
       this.modal.toggleModal("auth");
     },
       (error) => {
-        console.log(error)
         this.alertMsg = "Something went wrong, try again"
       })
   }
