@@ -18,6 +18,7 @@ export class AuthService {
     return this.http.post<{ token: string }>(`${this.base_url}/auth/signin`, { login, password }).pipe(tap(resData => {
       const user = new User(resData.token, login);
       this.user.next(user);
+      sessionStorage.setItem('userData', JSON.stringify(user))
     }))
   }
 
@@ -27,8 +28,25 @@ export class AuthService {
 
   }
 
+  autoLogin() {
+    const userData: {
+      login: string,
+      token: string
+    } = JSON.parse(sessionStorage.getItem('userData'))
+
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(userData.login, userData.token)
+
+    this.user.next(loadedUser)
+
+  }
+
   logOut() {
     this.user.next(null)
     this.router.navigate([''])
+    sessionStorage.clear();
   }
 }
