@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EntranceComponent } from './entrance/entrance.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { BoardsComponentt } from './boards/boards.component';
 import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
@@ -9,9 +9,9 @@ const routes: Routes = [
     component: EntranceComponent
   },
   {
-    path: 'tasks',
+    path: 'boards',
     canActivate:[AuthGuard],
-    component: TasksComponent
+    component: BoardsComponentt
   }
 ];
 

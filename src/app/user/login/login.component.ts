@@ -43,7 +43,7 @@ export class LoginComponent {
     this.authService.signin(login, password).subscribe((res: any) => {
       localStorage.setItem('token', res.token);
 
-      this.router.navigate(['tasks'])
+      this.router.navigate(['boards'])
       this.modal.toggleModal("auth");
     },
       (error) => {
