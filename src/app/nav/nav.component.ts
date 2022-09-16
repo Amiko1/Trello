@@ -14,7 +14,7 @@ export class NavComponent implements OnInit, OnDestroy {
   private userSub!: Subscription;
 
   constructor(public modal: ModalService, private authService: AuthService) { }
-  
+
   ngOnInit(): void {
      this.authService.user.subscribe(user => {
       this.isUserAuthenticated = !!user
@@ -31,8 +31,10 @@ export class NavComponent implements OnInit, OnDestroy {
     this.modal.toggleModal('auth')
   }
 
-  onLogout() {
 
+
+  onLogout() {
+    this.authService.logOut()
   }
 
 }
