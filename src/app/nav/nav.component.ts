@@ -8,15 +8,22 @@ import { ModalService } from '../services/modal.service';
 })
 export class NavComponent implements OnInit {
 
+  isUserAuthenticated = false;
+
   constructor(public modal: ModalService) { }
 
   ngOnInit(): void {
+    
   }
 
   openModal($event: Event) {
     $event.preventDefault()
 
     this.modal.toggleModal('auth')
+  }
+
+  onLogout() {
+
   }
 
 }

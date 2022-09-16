@@ -8,10 +8,16 @@
       <!-- Primary Navigation -->
       <ul class="flex flex-row mt-1">
         <!-- Navigation Links -->
-        <li>
+        <li *ngIf="!isUserAuthenticated">
           <a class="px-2" href="#" 
             (click)="openModal($event)">
             Login / Register
+          </a>
+        </li>
+        <li *ngIf="isUserAuthenticated">
+          <a class="px-2" href="#" 
+            (click)="onLogout()">
+            LogOut
           </a>
         </li>
         
