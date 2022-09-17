@@ -48,11 +48,9 @@ export class RegisterComponent {
     
 
     this.authService.signup(name, login, password).subscribe((res: any) => {
-      console.log(res)
       this.alertMsg = "Congretulation You are registered, Go to log in"
     },
       (error) => {
-        console.log(error)
         this.alertMsg = "Something went wrong, try again"
       })
   }

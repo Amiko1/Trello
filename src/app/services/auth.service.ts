@@ -15,8 +15,10 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   signin(login: any, password: any) {
-    return this.http.post<{ token: string }>(`${this.base_url}/auth/signin`, { login, password }).pipe(tap(resData => {
-      const user = new User(resData.token, login);
+    return this.http.post<{ token: string, id: string, login: string }>(`${this.base_url}/auth/signin`, { login, password }).pipe(tap(resData => {
+      
+      
+      const user = new User(resData.token, resData.login, resData.id);
       this.user.next(user);
       sessionStorage.setItem('userData', JSON.stringify(user))
     }))
@@ -31,14 +33,15 @@ export class AuthService {
   autoLogin() {
     const userData: {
       login: string,
-      _token: string
+      _token: string,
+      id: string
     } = JSON.parse(sessionStorage.getItem('userData'))
 
     if (!userData) {
       return;
     }
 
-    const loadedUser = new User(userData.login, userData._token)
+    const loadedUser = new User(userData._token, userData.login, userData.id)
 
 
     

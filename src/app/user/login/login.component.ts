@@ -27,22 +27,22 @@ export class LoginComponent {
     Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
   ])
 
-  registerForm = new FormGroup({
+  loginForm = new FormGroup({
     login: this.login,
     password: this.password,
   })
 
-  register() {
+  loginIn() {
 
     this.showAlert = true
     this.alertMsg = 'Please wait! Your account Logged in'
     this.alertColor = 'blue'
 
-    const { login, password } = this.registerForm.value
+    const { login, password } = this.loginForm.value
 
     this.authService.signin(login, password).subscribe((res: any) => {
-      localStorage.setItem('token', res.token);
-
+      
+     
       this.router.navigate(['boards'])
       this.modal.toggleModal("auth");
     },

@@ -7,15 +7,18 @@ import { Board } from '../boards/boards.model';
   providedIn: 'root'
 })
 export class BoardServices {
-  
+
   boards = new Subject<Board[]>();
   casheBoards = [];
   base_url = environment.base_url
   constructor(private http: HttpClient) { }
 
-  getAllBoards() {
-    this.http.get<Board[]>(`${this.base_url}/boards`).subscribe(boards => {
+  getAllBoards(id) {
+    this.http.get<Board[]>(`${this.base_url}/boardsSet/${id}`,
+
+    ).subscribe(boards => {
       this.boards.next(boards)
+      console.log(boards)
       this.casheBoards = boards
     });
   }
@@ -25,10 +28,10 @@ export class BoardServices {
   }
 
   createBoard(title: string, owner: string, users: string[] | []) {
-   const board = {title, owner, users}
-   this.casheBoards.push(board)
-   this.boards.next(this.casheBoards)
-   return this.http.post(`${this.base_url}/boards`,board )
+    const board = { title, owner, users }
+    this.casheBoards.push(board)
+    this.boards.next(this.casheBoards)
+    return this.http.post(`${this.base_url}/boards`, board)
   }
-  
+
 }

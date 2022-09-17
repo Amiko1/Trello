@@ -13,7 +13,6 @@ export class EntranceComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user.subscribe((user) => {
-      console.log(user)
       if (user) {
         this.router.navigate(['boards'])
       }
