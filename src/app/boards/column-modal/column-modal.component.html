@@ -1,0 +1,7 @@
+<app-modal modalID="addColumn">
+    <app-input ngDefaultControl [(ngModel)]="columnTitle" placeholder="Enter Column title"></app-input>
+    <button  class="mt-10 block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+    hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400" [disabled]="!columnTitle" (click)="createColumn()">
+        Submit
+    </button>
+</app-modal>

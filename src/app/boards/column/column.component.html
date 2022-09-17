@@ -1,3 +1,14 @@
-<div cdkDropList cdkDropListOrientation="horizontal" class="example-list p-20 mt-10 grid-col-1 sm:grid-cols-3 grid lg:grid-cols-5 gap-4 " (cdkDropListDropped)="drop($event)">
-    <div class="example-box rounded-lg" *ngFor="let timePeriod of timePeriods" cdkDrag>{{timePeriod}}</div>
-  </div>
+<button (click)="openModal()"
+  class="flex   ml-auto mr-auto justify-center items-center border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center mt-10 mx-20 py-4 w-1/5 ">Create
+  New Column</button>
+<div class="wrapper">
+  <div cdkDropList cdkDropListOrientation="horizontal"
+  class="example-list px-20 pt-10 mt-10 flex gap-4   "
+  (cdkDropListDropped)="drop($event)">
+
+  <div class="item text-center example-box rounded-lg" *ngFor="let column of columns" cdkDrag>{{column.title}}</div>
+
+</div>
+</div>
+
+<app-column-modal [boardsId]="boardsId"></app-column-modal>
