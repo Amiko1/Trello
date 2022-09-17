@@ -1,0 +1,10 @@
+.select-wrapper {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+select:focus {
+    outline: none;
+    border: 1px solid white;
+    box-shadow: deeppink;
+}

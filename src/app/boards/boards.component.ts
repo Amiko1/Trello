@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { BoardServices } from '../services/boards.service';
 import { ModalService } from '../services/modal.service';
 import { Board } from './boards.model';
 
@@ -8,20 +9,22 @@ import { Board } from './boards.model';
   templateUrl: './boards.component.html',
   styleUrls: ['./boards.component.css']
 })
-export class BoardsComponentt  {
+export class BoardsComponentt implements OnInit {
 
-  constructor(private modalService: ModalService ) {}
+  constructor(private modalService: ModalService, private boardService: BoardServices ) {}
 
-  boards: Board[] = [
-    new Board(1, "Math"),
-    new Board(2, "SAX")
-  ]
+  boards: Board[] = [];
 
+  ngOnInit() {
+    this.boardService.getAllBoards()
+    this.boardService.boards.subscribe((board) => {
+      this.boards = board
+    })
+  }
 
   openModal() {
     this.modalService.toggleModal('addBoard')
   }
- 
 
 
 }

@@ -31,15 +31,17 @@ export class AuthService {
   autoLogin() {
     const userData: {
       login: string,
-      token: string
+      _token: string
     } = JSON.parse(sessionStorage.getItem('userData'))
 
     if (!userData) {
       return;
     }
 
-    const loadedUser = new User(userData.login, userData.token)
+    const loadedUser = new User(userData.login, userData._token)
 
+
+    
     this.user.next(loadedUser)
 
   }

@@ -8,9 +8,8 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./boards-modal.component.css'],
 })
 export class BoardsModalComponent implements OnInit, OnDestroy {
-
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  
+ 
 
   constructor(public modal: ModalService) { }
 

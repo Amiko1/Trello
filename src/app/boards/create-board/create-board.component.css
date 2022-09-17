@@ -1,0 +1,4 @@
+.users_wrapper {
+    max-height: 150px;
+    overflow-y: auto;
+}

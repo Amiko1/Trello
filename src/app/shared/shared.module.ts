@@ -7,15 +7,16 @@ import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { AlertComponent } from './alert/alert.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 // import { ModalService } from '../services/modal.service';
-
 @NgModule({
   declarations: [
     ModalComponent,
     TabsContainerComponent,
     TabComponent,
     InputComponent,
-    AlertComponent
+    AlertComponent,
+    DropdownComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +28,9 @@ import { AlertComponent } from './alert/alert.component';
     TabsContainerComponent,
     TabComponent,
     InputComponent,
-    AlertComponent
+    AlertComponent,
+    DropdownComponent
+    
   ],
   // providers: [ModalService]
 })
