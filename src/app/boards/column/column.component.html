@@ -1,1 +1,3 @@
-<p>column works!</p>
+<div cdkDropList cdkDropListOrientation="horizontal" class="example-list p-20 mt-10 grid-col-1 sm:grid-cols-3 grid lg:grid-cols-5 gap-4 " (cdkDropListDropped)="drop($event)">
+    <div class="example-box rounded-lg" *ngFor="let timePeriod of timePeriods" cdkDrag>{{timePeriod}}</div>
+  </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { MatSelectModule } from '@angular/material/select'
 import { SharedModule } from '../shared/shared.module';
@@ -21,7 +22,8 @@ import { ColumnComponent } from './column/column.component';
     ReactiveFormsModule,
     FormsModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
+    DragDropModule
   ],
   exports: [
     BoardsModalComponent
