@@ -12,13 +12,15 @@ export class NavComponent implements OnInit, OnDestroy {
 
   isUserAuthenticated = false;
   private userSub!: Subscription;
-
+  user: string;
   constructor(public modal: ModalService, private authService: AuthService) { }
 
   ngOnInit(): void {
      this.authService.user.subscribe(user => {
       this.isUserAuthenticated = !!user
     })
+
+    this.user = this.authService.user.value.login
   }
 
   ngOnDestroy(): void {

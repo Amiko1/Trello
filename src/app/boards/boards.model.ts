@@ -1,3 +1,3 @@
 export class Board {
-    constructor(public id:number, public title: string ) {}
+    constructor(public _id:number, public title: string, owner:string ) {}
 }
