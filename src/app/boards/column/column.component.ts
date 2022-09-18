@@ -23,8 +23,9 @@ export class ColumnComponent implements OnInit {
   columns;
 
   drop(event: CdkDragDrop<string[]>) {
-    console.log(event)
+    
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
+    this.updateColumnSet()
   }
   openModal() {
     this.modal.toggleModal('addColumn')
@@ -32,17 +33,24 @@ export class ColumnComponent implements OnInit {
 
   getColumns() {
     this.columnService.getColumns(this.boardsId)
-    this.columnService.columns.subscribe(res => {
-      this.columns = res;
+    this.columnService.columns.subscribe((col: { title: string, _id: string, order: string, boardId: string }[]) => {
+      console.log(col)
+      this.columns = col.sort((a, b) => (a.order > b.order) ? 1 : -1)
+
     })
   }
 
-  drag(e) {
-    console.log('HEY')
-    if (e.target.type == "button") {
-      console.log('HEY')
-      e.preventDefault();
-    }
+  updateColumnSet() {
+    const updatedColumns = this.columns.map((col, index) => {
+      col.order = ++index;
+      return {
+        order: col.order,
+        _id: col._id
+      }
+    })
+    this.columnService.updateColumnSet(updatedColumns).subscribe(res => console.log(res))
+
   }
+
 
 }

@@ -21,9 +21,13 @@ export class ColumnsService {
   }
 
   getColumns(boardId) {
-    this.http.get(`${this.base_url}/boards/${boardId}/columns`).subscribe(res => {
+    this.http.get<[]>(`${this.base_url}/boards/${boardId}/columns`).subscribe(res => {
       this.casheColumns = res;
       this.columns.next(res)
     })
+  }
+
+  updateColumnSet(updatedColumns) {
+    return this.http.patch(`${this.base_url}/columnsSet`, updatedColumns)
   }
 }
