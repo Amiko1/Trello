@@ -23,7 +23,7 @@ export class ColumnsService {
     this.http.get<[]>(`${this.base_url}/boards/${boardId}/columns`).pipe(take(1)).subscribe(res => {
      
       this.columns.next(res)
-      console.log(this.columns.value, " VUe")
+      
     })
   }
 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class User {\n  constructor(_token, login, id) {\n    this._token = _token;\n    this.login = login;\n    this.id = id;\n  }\n\n  get token() {\n    return this._token;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

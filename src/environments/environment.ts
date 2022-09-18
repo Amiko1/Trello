@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:3500'   
+  base_url: 'https://api-trell.herokuapp.com/'   
 };
 
 /*

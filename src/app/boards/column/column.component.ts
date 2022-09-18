@@ -58,7 +58,7 @@ export class ColumnComponent implements OnInit {
         _id: col._id
       }
     })
-    this.columnService.updateColumnSet(updatedColumns).subscribe(res => console.log(res))
+    this.columnService.updateColumnSet(updatedColumns)
 
   }
 
