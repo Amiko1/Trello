@@ -4,6 +4,14 @@
   padding-bottom: 50px;
 }
 
+.task {
+          background-color: #161d31;
+}
+
+.tasks {
+  width: 83%;
+  padding-left: 4px;
+}
 .example-box {
   width: 300px;
 

@@ -1,0 +1,39 @@
+<app-modal modalID="addTasks">
+    <app-alert *ngIf="showAlert" [color]="alertColor">
+        {{ alertMsg }}
+    </app-alert>
+
+    <!-- Registration Form -->
+    <form [formGroup]="createTaskForm" (ngSubmit)="createTask()">
+
+        <div class="mb-3">
+            <label class="inline-block mb-2">Create Task</label>
+            <app-input [control]="title" placeholder="Enter Title"></app-input>
+        </div>
+
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label class="inline-block mb-2">Description</label>
+            <app-input [control]="description" type="text" placeholder="Enter Description"></app-input>
+        </div>
+
+        <app-dropdown (change)="onUserClick($event)">
+            <option value="null" selected>Select Users</option>
+            <option class="cursor-pointer" *ngFor="let userLogin of userLogins">{{userLogin}} </option>
+        </app-dropdown>
+
+        <div class="cursor-pointer flex mt-4 flex-wrap gap-2">
+            <div *ngFor="let user of selectedUserLogins" (click)="removeUser(user)"
+                class="p-2 rounded-md text-white border-dotted border-2 border-indigo-600">
+                {{user}}
+            </div>
+        </div>
+
+
+        <button type="submit" class="mt-6 block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+            hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400" [disabled]="createTaskForm.invalid">
+            Submit
+        </button>
+    </form>
+</app-modal>

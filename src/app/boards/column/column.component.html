@@ -1,42 +1,23 @@
-
-
 <button (click)="openModal()"
-class="flex   ml-auto mr-auto justify-center items-center border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center mt-10 mx-20 py-4 w-1/5 ">Create
-New Column</button>
+  class="flex   ml-auto mr-auto justify-center items-center border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center mt-10 mx-20 py-4 w-1/5 ">Create
+  New Column</button>
 
 
 
 <div class="wrapper" cdkScrollable>
-  <div cdkDropList cdkDropListOrientation="horizontal" class="example-list px-20 pt-10 mt-10 flex gap-4" (cdkDropListDropped)="drop($event)">
-    <div class="example-box item text-center example-box rounded-lg"  *ngFor="let column of columns" cdkDrag>
+  <div cdkDropList cdkDropListOrientation="horizontal" class="example-list px-20 pt-10 mt-10 flex gap-4"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box item text-center example-box rounded-lg" *ngFor="let column of columns" cdkDrag>
       <p class="mt-6"> {{column.title}}</p>
-      <button
-        class="mt-6 py-3 shadow-lg border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center   w-4/5 ">Create
-        Task</button>
+      <button (click)="openTaskModal(column._id)"
+        class="task text-white mt-6 py-3 shadow-lg border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center   w-4/5 ">Create
+        Task
+      </button>
+      <app-tasks   [boardId]="this.boardsId" [columnId]="column._id" class="tasks"></app-tasks>
     </div>
   </div>
 </div>
 
 
-<!-- 
-<div cdkDropList cdkDropListOrientation="horizontal" class="example-list px-20 pt-10 mt-10 flex gap-4   "
-    (cdkDropListDropped)="drop($event)">
-
-    
-      
-      <div class="item text-center example-box rounded-lg" *ngFor="let column of columns" cdkDrag>
-        <p>{{column.title}}</p>
-        <button
-          class="mt-6 py-3 shadow-lg border cursor-pointer opacity-70 hover:opacity-100 border-dotted text-center   w-4/5 ">Create
-          Task</button>
-      </div>
-    
-    
-
-  </div> -->
-
-
-
-
-
- <app-column-modal [boardsId]="boardsId"></app-column-modal> 
+<app-column-modal [boardsId]="boardsId"></app-column-modal>
+<app-tasks-modal [boardsId]="boardsId"></app-tasks-modal>

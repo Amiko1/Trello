@@ -29,7 +29,10 @@ export class ColumnModalComponent implements OnInit, OnDestroy {
   }
 
   createColumn() {
-      this.columService.createColumn(this.boardsId, this.columnTitle, 1).subscribe(res => console.log(res))
+      this.columService.createColumn(this.boardsId, this.columnTitle, 1).subscribe((res: any) => {
+        const plaseholder = [...this.columService.columns.value, res]
+        this.columService.columns.next(plaseholder)
+      })  
       this.modal.toggleModal('addColumn')
   }
 

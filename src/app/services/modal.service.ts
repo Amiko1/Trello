@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 interface IModal {
   id: string;
@@ -10,7 +11,8 @@ interface IModal {
 })
 export class ModalService {
   private modals: IModal[] = []
-
+  temp = new Subject();
+  
   constructor() { }
 
   register(id: string) {

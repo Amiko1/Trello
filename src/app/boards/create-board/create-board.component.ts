@@ -46,6 +46,8 @@ export class CreateBoardComponent implements OnInit {
     this.showAlert = true;
     const owner = this.authService.user.value.login;
     this.boardsService.createBoard(this.boardTitle, owner, this.selectedUserLogins).subscribe((res) => {
+      let placeHolder = [...this.boardsService.boards.value, res];
+      this.boardsService.boards.next(placeHolder)
       this.showAlert = false
       this.modalService.toggleModal('addBoard')
     }, (error) => [

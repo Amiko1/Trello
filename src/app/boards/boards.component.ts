@@ -18,6 +18,7 @@ export class BoardsComponentt implements OnInit {
   ngOnInit() {
     this.boardService.getAllBoards(this.authService.user.value.login)
     this.boardService.boards.subscribe((board) => {
+      
       this.boards = board
       console.log(this.boards)
     })

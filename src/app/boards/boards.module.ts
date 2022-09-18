@@ -11,13 +11,17 @@ import { CreateBoardComponent } from './create-board/create-board.component';
 import { ColumnComponent } from './column/column.component';
 import { ColumnModalComponent } from './column-modal/column-modal.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { TasksModalComponent } from './tasks-modal/tasks-modal.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
   declarations: [
     BoardsModalComponent,
     CreateBoardComponent,
     ColumnComponent,
-    ColumnModalComponent
+    ColumnModalComponent,
+    TasksModalComponent,
+    TasksComponent
   ],
   imports: [
     CommonModule,

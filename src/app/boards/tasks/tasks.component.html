@@ -1,0 +1,7 @@
+<div cdkDropList class="example-list pr-2 pb-10" (cdkDropListDropped)="drop($event)">
+    <div   *ngFor="let task of tasks" cdkDrag class="example-box text-black rounded  mt-6 py-3  border-2 cursor-pointer opacity-70 hover:opacity-100  text-center   ">
+       <h5 class="text-md">{{task.title}}</h5>
+       <p class="mt-2 text-sm">{{task.description}}</p>
+    </div>
+</div>
+
