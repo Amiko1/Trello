@@ -13,11 +13,11 @@ export class ColumnComponent implements OnInit {
 
   constructor(private modal: ModalService, private route: ActivatedRoute, private columnService: ColumnsService) { }
 
-  boardsId;
+  boardsId: String;
 
   ngOnInit(): void {
-   this.boardsId = this.route.snapshot.params['boardsId']
-   this.getColumns()
+    this.boardsId = this.route.snapshot.params['boardsId']
+    this.getColumns()
   }
 
   columns;
@@ -31,11 +31,18 @@ export class ColumnComponent implements OnInit {
   }
 
   getColumns() {
-     this.columnService.getColumns(this.boardsId)
-     this.columnService.columns.subscribe(res => {
-        this.columns = res;
-     })
+    this.columnService.getColumns(this.boardsId)
+    this.columnService.columns.subscribe(res => {
+      this.columns = res;
+    })
   }
 
- 
+  drag(e) {
+    console.log('HEY')
+    if (e.target.type == "button") {
+      console.log('HEY')
+      e.preventDefault();
+    }
+  }
+
 }

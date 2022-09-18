@@ -10,6 +10,7 @@ import { BoardsModalComponent } from './boards-modal/boards-modal.component';
 import { CreateBoardComponent } from './create-board/create-board.component';
 import { ColumnComponent } from './column/column.component';
 import { ColumnModalComponent } from './column-modal/column-modal.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ColumnModalComponent } from './column-modal/column-modal.component';
     FormsModule,
     MatSelectModule,
     RouterModule,
-    DragDropModule
+    DragDropModule,
+    ScrollingModule
   ],
   exports: [
     BoardsModalComponent,
